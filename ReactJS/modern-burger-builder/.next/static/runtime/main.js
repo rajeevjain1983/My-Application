@@ -505,7 +505,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "/Users/rajjain0/MyComputer/MyPOC/modern-burger-builder/.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "/Users/rajjain0/MyComputer/MyPOCs/ReactJS/modern-burger-builder/.next");
       return error;
     }
   };

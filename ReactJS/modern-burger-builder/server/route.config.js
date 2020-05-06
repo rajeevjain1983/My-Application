@@ -5,6 +5,11 @@ const ROUTES_LIST = [
     resolver: "/Burger",
   },
   {
+    noSlugPath: "test",
+    path: "/test",
+    resolver: "/Test",
+  },
+  {
     noSlugPath: "home",
     path: "/",
     resolver: "/",

@@ -15,8 +15,29 @@ class Burger extends React.PureComponent {
     };
   }
 
+  ingredientsHandler = (name, action) => {
+    if (action === "More") {
+      const ingredients = { ...this.state.ingredients };
+      ingredients[name] = ingredients[name] + 1;
+      this.setState({ ingredients });
+    } else {
+      const ingredients = { ...this.state.ingredients };
+
+      ingredients[name] =
+        ingredients[name] > 0 ? ingredients[name] - 1 : (ingredients[name] = 0);
+      this.setState({ ingredients });
+    }
+
+    // console.log(this.state);
+  };
+
   render() {
-    return <BurgerView ingredients={this.state.ingredients} />;
+    return (
+      <BurgerView
+        ingredients={this.state.ingredients}
+        ingredientsHandler={this.ingredientsHandler}
+      />
+    );
   }
 }
 

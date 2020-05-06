@@ -7002,22 +7002,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-
-function _templateObject() {
-  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  background-image: linear-gradient(\n    to right,\n    ", ",\n    ", "\n  );\n  color: ", ";\n  margin: 50px;\n  justify-content: center;\n  display: flex;\n  border: 1px solid green;\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-
-var styles = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["css"])(_templateObject(), function (props) {
+var styles = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])(["background-image:linear-gradient( to right,", ",", " );color:", ";margin:50px;justify-content:center;display:flex;border:1px solid green;"], function (props) {
   return props.theme.primaryColor;
 }, function (props) {
   return props.theme.secondaryColor;
@@ -7129,22 +7116,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-
-function _templateObject() {
-  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  background-image: linear-gradient(\n    to right,\n    ", ",\n    ", "\n  );\n  color: ", ";\n  padding: 10px;\n  justify-content: flex-end;\n  display: flex;\n  .buttonStyle {\n    border: 1px solid ", ";\n    border-radius: 30px;\n    padding: 5px 10px;\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-
-var styles = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["css"])(_templateObject(), function (props) {
+var styles = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])(["background-image:linear-gradient( to right,", ",", " );color:", ";padding:10px;justify-content:flex-end;display:flex;align-items:\"center\";.buttonStyle{border:1px solid ", ";border-radius:30px;padding:5px 10px;}.linkStyle{padding:5px;color:", ";}button{background-color:transparent;border:none;color:", ";font-size:12px;}"], function (props) {
   return props.theme.primaryColor;
 }, function (props) {
   return props.theme.secondaryColor;
@@ -7152,6 +7126,10 @@ var styles = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["css"])(_temp
   return props.theme.secondaryColor;
 }, function (props) {
   return props.theme.primaryColor;
+}, function (props) {
+  return props.theme.fontColor;
+}, function (props) {
+  return props.theme.fontColor;
 });
 /* harmony default export */ __webpack_exports__["default"] = (styles);
 
@@ -7168,10 +7146,12 @@ var styles = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["css"])(_temp
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _common_hoc_withStyle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../common/hoc/withStyle */ "./src/components/common/hoc/withStyle.jsx");
-/* harmony import */ var _styles_header_style__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/header.style */ "./src/components/features/content/Header/styles/header.style.js");
-/* harmony import */ var _common_atoms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../common/atoms */ "./src/components/common/atoms/index.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _common_hoc_withStyle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../common/hoc/withStyle */ "./src/components/common/hoc/withStyle.jsx");
+/* harmony import */ var _styles_header_style__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/header.style */ "./src/components/features/content/Header/styles/header.style.js");
+/* harmony import */ var _common_atoms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../common/atoms */ "./src/components/common/atoms/index.js");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -7179,17 +7159,33 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 var Header = function Header(props) {
-  var theme = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(styled_components__WEBPACK_IMPORTED_MODULE_1__["ThemeContext"]);
+  var theme = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(styled_components__WEBPACK_IMPORTED_MODULE_2__["ThemeContext"]);
+
+  var nav_click = function nav_click(event) {
+    if (event.target.innerText === "Home") {
+      next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/");
+    } else {
+      next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/burger");
+    }
+  };
+
   return __jsx("div", {
     className: props.className
-  }, __jsx(_common_atoms__WEBPACK_IMPORTED_MODULE_4__["ToggleButton"], {
+  }, __jsx("button", {
+    url: "/",
+    onClick: nav_click
+  }, "Home"), __jsx("button", {
+    url: "/burger",
+    onClick: nav_click
+  }, "Burger"), __jsx(_common_atoms__WEBPACK_IMPORTED_MODULE_5__["ToggleButton"], {
     active: theme.name === "darkTheme",
     onToggle: props.toggleTheme
   }, "Toggle Theme"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_common_hoc_withStyle__WEBPACK_IMPORTED_MODULE_2__["default"])(Header, _styles_header_style__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_common_hoc_withStyle__WEBPACK_IMPORTED_MODULE_3__["default"])(Header, _styles_header_style__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -7609,13 +7605,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var orange = {
-  50: '#fef4e8',
-  100: '#fdead2',
-  300: '#fbd5a5',
-  500: '#fac078',
-  700: '#f9b662',
-  800: '#f7971f',
-  900: '#c25621'
+  50: "#fef4e8",
+  100: "#fdead2",
+  300: "#fbd5a5",
+  500: "#fac078",
+  700: "#f9b662",
+  800: "#f7971f",
+  900: "#c25621",
+  1000: "#CF8F2E"
 };
 /* harmony default export */ __webpack_exports__["default"] = (orange);
 
@@ -7809,7 +7806,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! next-client-pages-loader?page=%2F_app&absolutePagePath=private-next-pages%2F_app.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_app&absolutePagePath=private-next-pages%2F_app.jsx!./");
-module.exports = __webpack_require__(/*! /Users/rajjain0/MyComputer/MyPOC/modern-burger-builder/node_modules/next/dist/client/router.js */"./node_modules/next/dist/client/router.js");
+module.exports = __webpack_require__(/*! /Users/rajjain0/MyComputer/MyPOCs/ReactJS/modern-burger-builder/node_modules/next/dist/client/router.js */"./node_modules/next/dist/client/router.js");
 
 
 /***/ }),

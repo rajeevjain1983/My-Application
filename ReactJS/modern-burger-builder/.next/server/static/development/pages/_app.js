@@ -465,18 +465,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
-const styles = styled_components__WEBPACK_IMPORTED_MODULE_0__["css"]`
-  background-image: linear-gradient(
-    to right,
-    ${props => props.theme.primaryColor},
-    ${props => props.theme.secondaryColor}
-  );
-  color: ${props => props.theme.secondaryColor};
-  margin: 50px;
-  justify-content: center;
-  display: flex;
-  border: 1px solid green;
-`;
+const styles = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])(["background-image:linear-gradient( to right,", ",", " );color:", ";margin:50px;justify-content:center;display:flex;border:1px solid green;"], props => props.theme.primaryColor, props => props.theme.secondaryColor, props => props.theme.secondaryColor);
 /* harmony default export */ __webpack_exports__["default"] = (styles);
 
 /***/ }),
@@ -585,22 +574,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
-const styles = styled_components__WEBPACK_IMPORTED_MODULE_0__["css"]`
-  background-image: linear-gradient(
-    to right,
-    ${props => props.theme.primaryColor},
-    ${props => props.theme.secondaryColor}
-  );
-  color: ${props => props.theme.secondaryColor};
-  padding: 10px;
-  justify-content: flex-end;
-  display: flex;
-  .buttonStyle {
-    border: 1px solid ${props => props.theme.primaryColor};
-    border-radius: 30px;
-    padding: 5px 10px;
-  }
-`;
+const styles = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])(["background-image:linear-gradient( to right,", ",", " );color:", ";padding:10px;justify-content:flex-end;display:flex;align-items:\"center\";.buttonStyle{border:1px solid ", ";border-radius:30px;padding:5px 10px;}.linkStyle{padding:5px;color:", ";}button{background-color:transparent;border:none;color:", ";font-size:12px;}"], props => props.theme.primaryColor, props => props.theme.secondaryColor, props => props.theme.secondaryColor, props => props.theme.primaryColor, props => props.theme.fontColor, props => props.theme.fontColor);
 /* harmony default export */ __webpack_exports__["default"] = (styles);
 
 /***/ }),
@@ -616,11 +590,13 @@ const styles = styled_components__WEBPACK_IMPORTED_MODULE_0__["css"]`
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _common_hoc_withStyle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../common/hoc/withStyle */ "./src/components/common/hoc/withStyle.jsx");
-/* harmony import */ var _styles_header_style__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/header.style */ "./src/components/features/content/Header/styles/header.style.js");
-/* harmony import */ var _common_atoms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../common/atoms */ "./src/components/common/atoms/index.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _common_hoc_withStyle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../common/hoc/withStyle */ "./src/components/common/hoc/withStyle.jsx");
+/* harmony import */ var _styles_header_style__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/header.style */ "./src/components/features/content/Header/styles/header.style.js");
+/* harmony import */ var _common_atoms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../common/atoms */ "./src/components/common/atoms/index.js");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -628,17 +604,33 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 const Header = props => {
-  const theme = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(styled_components__WEBPACK_IMPORTED_MODULE_1__["ThemeContext"]);
+  const theme = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(styled_components__WEBPACK_IMPORTED_MODULE_2__["ThemeContext"]);
+
+  const nav_click = event => {
+    if (event.target.innerText === "Home") {
+      next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/");
+    } else {
+      next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/burger");
+    }
+  };
+
   return __jsx("div", {
     className: props.className
-  }, __jsx(_common_atoms__WEBPACK_IMPORTED_MODULE_4__["ToggleButton"], {
+  }, __jsx("button", {
+    url: "/",
+    onClick: nav_click
+  }, "Home"), __jsx("button", {
+    url: "/burger",
+    onClick: nav_click
+  }, "Burger"), __jsx(_common_atoms__WEBPACK_IMPORTED_MODULE_5__["ToggleButton"], {
     active: theme.name === "darkTheme",
     onToggle: props.toggleTheme
   }, "Toggle Theme"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_common_hoc_withStyle__WEBPACK_IMPORTED_MODULE_2__["default"])(Header, _styles_header_style__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_common_hoc_withStyle__WEBPACK_IMPORTED_MODULE_3__["default"])(Header, _styles_header_style__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -1050,13 +1042,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 const orange = {
-  50: '#fef4e8',
-  100: '#fdead2',
-  300: '#fbd5a5',
-  500: '#fac078',
-  700: '#f9b662',
-  800: '#f7971f',
-  900: '#c25621'
+  50: "#fef4e8",
+  100: "#fdead2",
+  300: "#fbd5a5",
+  500: "#fac078",
+  700: "#f9b662",
+  800: "#f7971f",
+  900: "#c25621",
+  1000: "#CF8F2E"
 };
 /* harmony default export */ __webpack_exports__["default"] = (orange);
 
@@ -1263,6 +1256,17 @@ __webpack_require__.r(__webpack_exports__);
 
 module.exports = __webpack_require__(/*! private-next-pages/_app.jsx */"./src/pages/_app.jsx");
 
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 

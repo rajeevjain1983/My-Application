@@ -891,6 +891,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
     renderPage
   }) {
     // Returns an object like: { html, head, errorHtml, chunks, styles }
+    console.log("getInitialProps");
     return renderPage();
   }
 

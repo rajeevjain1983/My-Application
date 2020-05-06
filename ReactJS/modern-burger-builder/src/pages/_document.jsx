@@ -4,6 +4,7 @@ import Document, { Main, NextScript } from "next/document";
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     // Returns an object like: { html, head, errorHtml, chunks, styles }
+    console.log("getInitialProps");
     return renderPage();
   }
 

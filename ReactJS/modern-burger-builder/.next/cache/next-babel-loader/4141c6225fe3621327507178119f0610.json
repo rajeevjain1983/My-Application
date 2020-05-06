@@ -1,1 +1,0 @@
-{"ast":null,"code":"export { default } from \"../components/features/Home\";","map":{"version":3,"sources":["/Users/rajjain0/MyComputer/MyPOC/modern-burger-builder/src/pages/index.js"],"names":["default"],"mappings":"AAAA,SAASA,OAAT,QAAwB,6BAAxB","sourcesContent":["export { default } from \"../components/features/Home\";\n"]},"metadata":{},"sourceType":"module"}

@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
 export default css`
-  height: 500px;
+  height: 350px;
   width: 60%;
   margin: 10px auto;
   text-align: center;

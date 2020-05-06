@@ -1,11 +1,15 @@
 import React from "react";
 import BurgerBuilder from "../organism/BurgerBuilder";
+import BurgerBuildControl from "../organism/BurgerBuildControls";
 
-const Burger = ({ ingredients }) => {
+const Burger = ({ ingredients, ingredientsHandler }) => {
   return (
     <div>
       <BurgerBuilder ingredients={ingredients} />
-      <p>Burger Build Controls</p>
+      <BurgerBuildControl
+        ingredients={ingredients}
+        ingredientsHandler={ingredientsHandler}
+      />
     </div>
   );
 };
