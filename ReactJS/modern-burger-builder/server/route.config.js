@@ -19,6 +19,11 @@ const ROUTES_LIST = [
     path: "/home",
     resolver: "/",
   },
+  {
+    noSlugPath: "orderHistory",
+    path: "/orderHistory",
+    resolver: "/OrderHistory",
+  },
 ];
 
 module.exports = { ROUTES_LIST };

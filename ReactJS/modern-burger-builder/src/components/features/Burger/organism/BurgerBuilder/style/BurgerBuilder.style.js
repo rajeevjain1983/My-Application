@@ -1,10 +1,11 @@
 import { css } from "styled-components";
 
 export default css`
-  height: 350px;
+  height: 400px;
   width: 60%;
   margin: 10px auto;
   text-align: center;
+  overflow: scroll;
 
   .BreadBottom {
     height: 13%;

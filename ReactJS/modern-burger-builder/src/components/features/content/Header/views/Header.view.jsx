@@ -10,18 +10,17 @@ const Header = (props) => {
   const nav_click = (event) => {
     if (event.target.innerText === "Home") {
       Router.push("/");
+    } else if (event.target.innerText === "Order History") {
+      Router.push("/orderHistory");
     } else {
       Router.push("/burger");
     }
   };
   return (
     <div className={props.className}>
-      <button url="/" onClick={nav_click}>
-        Home
-      </button>
-      <button url="/burger" onClick={nav_click}>
-        Burger
-      </button>
+      <button onClick={nav_click}>Home</button>
+      <button onClick={nav_click}>Order History</button>
+      <button onClick={nav_click}>Burger</button>
 
       <ToggleButton
         active={theme.name === "darkTheme"}

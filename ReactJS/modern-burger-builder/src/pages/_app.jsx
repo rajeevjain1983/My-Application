@@ -1,10 +1,11 @@
 import React from "react";
 import App from "next/app";
 import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
 import { Header, Footer } from "../components/features/content";
 import { LightTheme, DarKTheme } from "../../styles/themes";
-
 import GlobalStyle from "../../styles/globalStyles";
+import configureStore from "../reduxStore/store";
 
 class burger_app extends App {
   constructor(props) {
@@ -26,11 +27,13 @@ class burger_app extends App {
     const { Component, pageProps } = this.props;
     return (
       <ThemeProvider theme={this.state.theme}>
-        <GlobalStyle />
-        <title>My Burger App</title>
-        <Header toggleTheme={this.toggleTheme} />
-        <Component {...pageProps} />
-        {/* <Footer /> */}
+        <Provider store={configureStore}>
+          <GlobalStyle />
+          <title>My Burger App</title>
+          <Header toggleTheme={this.toggleTheme} />
+          <Component {...pageProps} />
+          {/* <Footer /> */}
+        </Provider>
       </ThemeProvider>
     );
   }

@@ -269,6 +269,75 @@ module.exports = _interopRequireDefault;
 
 /***/ }),
 
+/***/ "./src/components/common/atoms/Button/index.js":
+/*!*****************************************************!*\
+  !*** ./src/components/common/atoms/Button/index.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _views__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views */ "./src/components/common/atoms/Button/views/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _views__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./src/components/common/atoms/Button/style/button.style.js":
+/*!******************************************************************!*\
+  !*** ./src/components/common/atoms/Button/style/button.style.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button`
+  padding: 10px 15px;
+  background-color: ${props => props.theme.secondaryColor};
+  border: 1px solid ${props => props.theme.colors.common["black"]};
+  border-radius: 5px;
+`);
+
+/***/ }),
+
+/***/ "./src/components/common/atoms/Button/views/Button.view.jsx":
+/*!******************************************************************!*\
+  !*** ./src/components/common/atoms/Button/views/Button.view.jsx ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _style_button_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../style/button.style */ "./src/components/common/atoms/Button/style/button.style.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _style_button_style__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./src/components/common/atoms/Button/views/index.js":
+/*!***********************************************************!*\
+  !*** ./src/components/common/atoms/Button/views/index.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Button_view__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Button.view */ "./src/components/common/atoms/Button/views/Button.view.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Button_view__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
 /***/ "./src/components/common/atoms/ToggleButton/index.js":
 /*!***********************************************************!*\
   !*** ./src/components/common/atoms/ToggleButton/index.js ***!
@@ -373,7 +442,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./src/components/common/atoms/index.js ***!
   \**********************************************/
-/*! exports provided: ToggleButton */
+/*! exports provided: ToggleButton, Button */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -381,8 +450,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ToggleButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleButton */ "./src/components/common/atoms/ToggleButton/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ToggleButton", function() { return _ToggleButton__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Button */ "./src/components/common/atoms/Button/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return _Button__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 
+
+
+
+/***/ }),
+
+/***/ "./src/components/common/constants/index.js":
+/*!**************************************************!*\
+  !*** ./src/components/common/constants/index.js ***!
+  \**************************************************/
+/*! exports provided: OrderHistoryConstants, BurgerConstants */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderHistoryConstants", function() { return OrderHistoryConstants; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BurgerConstants", function() { return BurgerConstants; });
+const OrderHistoryConstants = {
+  OrderHistoryReducerKey: "OrderHistoryData",
+  GetOrderHistory: "GET_ORDER_HISTORY",
+  SetOrderHistory: "SET_ORDER_HISTORY"
+};
+const BurgerConstants = {
+  BurgerReducerKey: "BurgerData",
+  GetBurgerIngredients: "GET_BURGER_INGREDIENTS",
+  SetBurgerIngredients: "SET_BURGER_INGREDIENTS"
+};
 
 /***/ }),
 
@@ -402,6 +499,210 @@ __webpack_require__.r(__webpack_exports__);
   displayName: "withStyle",
   componentId: "sc-1y71933-0"
 })(["", ";"], styles));
+
+/***/ }),
+
+/***/ "./src/components/features/Burger/container/Burger.Reducer.js":
+/*!********************************************************************!*\
+  !*** ./src/components/features/Burger/container/Burger.Reducer.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immutable */ "immutable");
+/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immutable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/constants */ "./src/components/common/constants/index.js");
+
+
+const initialState = Object(immutable__WEBPACK_IMPORTED_MODULE_0__["fromJS"])({
+  ingredients: null
+});
+
+const BurgerReducer = (state = initialState, action) => {
+  console.log("BurgerReducer", action);
+
+  switch (action.type) {
+    case _common_constants__WEBPACK_IMPORTED_MODULE_1__["BurgerConstants"].SetBurgerIngredients:
+      return state.set("ingredients", action.payload);
+
+    default:
+      if (state instanceof Object) {
+        return Object(immutable__WEBPACK_IMPORTED_MODULE_0__["fromJS"])(state);
+      }
+
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BurgerReducer);
+
+/***/ }),
+
+/***/ "./src/components/features/Burger/container/Burger.actions.js":
+/*!********************************************************************!*\
+  !*** ./src/components/features/Burger/container/Burger.actions.js ***!
+  \********************************************************************/
+/*! exports provided: getBurgerIngredients, setBurgerIngredients */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBurgerIngredients", function() { return getBurgerIngredients; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBurgerIngredients", function() { return setBurgerIngredients; });
+/* harmony import */ var _common_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../common/constants */ "./src/components/common/constants/index.js");
+
+const getBurgerIngredients = () => {
+  return {
+    type: _common_constants__WEBPACK_IMPORTED_MODULE_0__["BurgerConstants"].GetBurgerIngredients
+  };
+};
+const setBurgerIngredients = payload => {
+  return {
+    type: _common_constants__WEBPACK_IMPORTED_MODULE_0__["BurgerConstants"].SetBurgerIngredients,
+    payload
+  };
+};
+
+/***/ }),
+
+/***/ "./src/components/features/Burger/container/Burger.saga.js":
+/*!*****************************************************************!*\
+  !*** ./src/components/features/Burger/container/Burger.saga.js ***!
+  \*****************************************************************/
+/*! exports provided: getIngredients, BurgerIngredients, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIngredients", function() { return getIngredients; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BurgerIngredients", function() { return BurgerIngredients; });
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-saga/effects */ "redux-saga/effects");
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_axios_order__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../service/axios_order */ "./src/service/axios_order.js");
+/* harmony import */ var _common_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../common/constants */ "./src/components/common/constants/index.js");
+/* harmony import */ var _Burger_container_Burger_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Burger/container/Burger.actions */ "./src/components/features/Burger/container/Burger.actions.js");
+
+
+
+
+function* getIngredients() {
+  try {
+    const response = yield _service_axios_order__WEBPACK_IMPORTED_MODULE_1__["default"].get("/ingredients.json");
+    yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["put"])(Object(_Burger_container_Burger_actions__WEBPACK_IMPORTED_MODULE_3__["setBurgerIngredients"])(response.data));
+  } catch (ex) {
+    console.log("Error", ex);
+  }
+}
+function* BurgerIngredients() {
+  yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["takeLatest"])(_common_constants__WEBPACK_IMPORTED_MODULE_2__["BurgerConstants"].GetBurgerIngredients, getIngredients);
+}
+/* harmony default export */ __webpack_exports__["default"] = (BurgerIngredients);
+
+/***/ }),
+
+/***/ "./src/components/features/OrderHistory/container/OrderHistory.actions.js":
+/*!********************************************************************************!*\
+  !*** ./src/components/features/OrderHistory/container/OrderHistory.actions.js ***!
+  \********************************************************************************/
+/*! exports provided: getOrderHistory, setOrderHistory */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOrderHistory", function() { return getOrderHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setOrderHistory", function() { return setOrderHistory; });
+/* harmony import */ var _common_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../common/constants */ "./src/components/common/constants/index.js");
+
+const getOrderHistory = payload => {
+  return {
+    type: _common_constants__WEBPACK_IMPORTED_MODULE_0__["OrderHistoryConstants"].GetOrderHistory,
+    payload
+  };
+};
+const setOrderHistory = payload => {
+  return {
+    type: _common_constants__WEBPACK_IMPORTED_MODULE_0__["OrderHistoryConstants"].SetOrderHistory,
+    payload
+  };
+};
+
+/***/ }),
+
+/***/ "./src/components/features/OrderHistory/container/OrderHistory.reducer.js":
+/*!********************************************************************************!*\
+  !*** ./src/components/features/OrderHistory/container/OrderHistory.reducer.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immutable */ "immutable");
+/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immutable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/constants */ "./src/components/common/constants/index.js");
+
+
+const initialState = Object(immutable__WEBPACK_IMPORTED_MODULE_0__["fromJS"])({
+  orderHistory: null
+});
+
+const OrderHistoryReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case _common_constants__WEBPACK_IMPORTED_MODULE_1__["OrderHistoryConstants"].SetOrderHistory:
+      return state.set("orderHistory", action.payload);
+
+    default:
+      if (state instanceof Object) {
+        return Object(immutable__WEBPACK_IMPORTED_MODULE_0__["fromJS"])(state);
+      }
+
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (OrderHistoryReducer);
+
+/***/ }),
+
+/***/ "./src/components/features/OrderHistory/container/OrderHistory.saga.js":
+/*!*****************************************************************************!*\
+  !*** ./src/components/features/OrderHistory/container/OrderHistory.saga.js ***!
+  \*****************************************************************************/
+/*! exports provided: getOrderHistory, OrderHistory, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOrderHistory", function() { return getOrderHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderHistory", function() { return OrderHistory; });
+/* harmony import */ var _common_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../common/constants */ "./src/components/common/constants/index.js");
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga/effects */ "redux-saga/effects");
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _service_axios_order__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../service/axios_order */ "./src/service/axios_order.js");
+/* harmony import */ var _container_OrderHistory_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../container/OrderHistory.actions */ "./src/components/features/OrderHistory/container/OrderHistory.actions.js");
+
+
+
+
+function* getOrderHistory({
+  payload
+}) {
+  console.log("getOrderHistory saga 2");
+
+  try {
+    const response = yield _service_axios_order__WEBPACK_IMPORTED_MODULE_2__["default"].get("/orders.json");
+    yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_container_OrderHistory_actions__WEBPACK_IMPORTED_MODULE_3__["setOrderHistory"])(response.data));
+  } catch (ex) {
+    console.log("Error:", ex);
+  }
+}
+function* OrderHistory() {
+  console.log("getOrderHistory saga");
+  yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_common_constants__WEBPACK_IMPORTED_MODULE_0__["OrderHistoryConstants"].GetOrderHistory, getOrderHistory);
+}
+/* harmony default export */ __webpack_exports__["default"] = (OrderHistory);
 
 /***/ }),
 
@@ -611,6 +912,8 @@ const Header = props => {
   const nav_click = event => {
     if (event.target.innerText === "Home") {
       next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/");
+    } else if (event.target.innerText === "Order History") {
+      next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/orderHistory");
     } else {
       next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/burger");
     }
@@ -619,10 +922,10 @@ const Header = props => {
   return __jsx("div", {
     className: props.className
   }, __jsx("button", {
-    url: "/",
     onClick: nav_click
   }, "Home"), __jsx("button", {
-    url: "/burger",
+    onClick: nav_click
+  }, "Order History"), __jsx("button", {
     onClick: nav_click
   }, "Burger"), __jsx(_common_atoms__WEBPACK_IMPORTED_MODULE_5__["ToggleButton"], {
     active: theme.name === "darkTheme",
@@ -686,10 +989,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_features_content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/features/content */ "./src/components/features/content/index.js");
-/* harmony import */ var _styles_themes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../styles/themes */ "./styles/themes/index.js");
-/* harmony import */ var _styles_globalStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../styles/globalStyles */ "./styles/globalStyles/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_features_content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/features/content */ "./src/components/features/content/index.js");
+/* harmony import */ var _styles_themes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../styles/themes */ "./styles/themes/index.js");
+/* harmony import */ var _styles_globalStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../styles/globalStyles */ "./styles/globalStyles/index.js");
+/* harmony import */ var _reduxStore_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../reduxStore/store */ "./src/reduxStore/store/index.js");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 
@@ -701,7 +1009,7 @@ class burger_app extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
   constructor(props) {
     super(props);
     this.state = {
-      theme: _styles_themes__WEBPACK_IMPORTED_MODULE_4__["DarKTheme"]
+      theme: _styles_themes__WEBPACK_IMPORTED_MODULE_5__["DarKTheme"]
     };
     this.toggleTheme = this.toggleTheme.bind(this);
   }
@@ -709,11 +1017,11 @@ class burger_app extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
   toggleTheme() {
     if (this.state.theme.name === "lightTheme") {
       this.setState({
-        theme: _styles_themes__WEBPACK_IMPORTED_MODULE_4__["DarKTheme"]
+        theme: _styles_themes__WEBPACK_IMPORTED_MODULE_5__["DarKTheme"]
       });
     } else {
       this.setState({
-        theme: _styles_themes__WEBPACK_IMPORTED_MODULE_4__["LightTheme"]
+        theme: _styles_themes__WEBPACK_IMPORTED_MODULE_5__["LightTheme"]
       });
     }
   }
@@ -726,14 +1034,113 @@ class burger_app extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
     } = this.props;
     return __jsx(styled_components__WEBPACK_IMPORTED_MODULE_2__["ThemeProvider"], {
       theme: this.state.theme
-    }, __jsx(_styles_globalStyles__WEBPACK_IMPORTED_MODULE_5__["default"], null), __jsx("title", null, "My Burger App"), __jsx(_components_features_content__WEBPACK_IMPORTED_MODULE_3__["Header"], {
+    }, __jsx(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
+      store: _reduxStore_store__WEBPACK_IMPORTED_MODULE_7__["default"]
+    }, __jsx(_styles_globalStyles__WEBPACK_IMPORTED_MODULE_6__["default"], null), __jsx("title", null, "My Burger App"), __jsx(_components_features_content__WEBPACK_IMPORTED_MODULE_4__["Header"], {
       toggleTheme: this.toggleTheme
-    }), __jsx(Component, pageProps));
+    }), __jsx(Component, pageProps)));
   }
 
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (burger_app);
+
+/***/ }),
+
+/***/ "./src/reduxStore/reducers/index.js":
+/*!******************************************!*\
+  !*** ./src/reduxStore/reducers/index.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_common_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/common/constants */ "./src/components/common/constants/index.js");
+/* harmony import */ var _components_features_OrderHistory_container_OrderHistory_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/features/OrderHistory/container/OrderHistory.reducer */ "./src/components/features/OrderHistory/container/OrderHistory.reducer.js");
+/* harmony import */ var _components_features_Burger_container_Burger_Reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/features/Burger/container/Burger.Reducer */ "./src/components/features/Burger/container/Burger.Reducer.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  [_components_common_constants__WEBPACK_IMPORTED_MODULE_1__["OrderHistoryConstants"].OrderHistoryReducerKey]: _components_features_OrderHistory_container_OrderHistory_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  [_components_common_constants__WEBPACK_IMPORTED_MODULE_1__["BurgerConstants"].BurgerReducerKey]: _components_features_Burger_container_Burger_Reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+}));
+
+/***/ }),
+
+/***/ "./src/reduxStore/saga/index.js":
+/*!**************************************!*\
+  !*** ./src/reduxStore/saga/index.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return rootSaga; });
+/* harmony import */ var _components_features_OrderHistory_container_OrderHistory_saga__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/features/OrderHistory/container/OrderHistory.saga */ "./src/components/features/OrderHistory/container/OrderHistory.saga.js");
+/* harmony import */ var _components_features_Burger_container_Burger_saga__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/features/Burger/container/Burger.saga */ "./src/components/features/Burger/container/Burger.saga.js");
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-saga/effects */ "redux-saga/effects");
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function* rootSaga() {
+  yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["all"])([Object(_components_features_OrderHistory_container_OrderHistory_saga__WEBPACK_IMPORTED_MODULE_0__["default"])(), Object(_components_features_Burger_container_Burger_saga__WEBPACK_IMPORTED_MODULE_1__["default"])()]);
+}
+
+/***/ }),
+
+/***/ "./src/reduxStore/store/index.js":
+/*!***************************************!*\
+  !*** ./src/reduxStore/store/index.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga */ "redux-saga");
+/* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_saga__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers */ "./src/reduxStore/reducers/index.js");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-devtools-extension */ "redux-devtools-extension");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _saga__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../saga */ "./src/reduxStore/saga/index.js");
+
+
+
+
+
+const sagaMiddleware = redux_saga__WEBPACK_IMPORTED_MODULE_1___default()();
+const configureStore = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_2__["default"], Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(sagaMiddleware)));
+console.log("configured saga");
+sagaMiddleware.run(_saga__WEBPACK_IMPORTED_MODULE_4__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./src/service/axios_order.js":
+/*!************************************!*\
+  !*** ./src/service/axios_order.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+const axiosOrder = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
+  baseURL: "https://my-burger-22130.firebaseio.com"
+});
+/* harmony default export */ __webpack_exports__["default"] = (axiosOrder);
 
 /***/ }),
 
@@ -1259,6 +1666,28 @@ module.exports = __webpack_require__(/*! private-next-pages/_app.jsx */"./src/pa
 
 /***/ }),
 
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+
+/***/ "immutable":
+/*!****************************!*\
+  !*** external "immutable" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("immutable");
+
+/***/ }),
+
 /***/ "next/router":
 /*!******************************!*\
   !*** external "next/router" ***!
@@ -1278,6 +1707,61 @@ module.exports = require("next/router");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-devtools-extension":
+/*!*******************************************!*\
+  !*** external "redux-devtools-extension" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-devtools-extension");
+
+/***/ }),
+
+/***/ "redux-saga":
+/*!*****************************!*\
+  !*** external "redux-saga" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-saga");
+
+/***/ }),
+
+/***/ "redux-saga/effects":
+/*!*************************************!*\
+  !*** external "redux-saga/effects" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-saga/effects");
 
 /***/ }),
 

@@ -8,11 +8,7 @@ export default css`
   padding: 10px;
 
   .buildControl {
-    /* border: 5px solid red; */
     width: 200px;
     margin: 0 auto;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: flex-start; */
   }
 `;
