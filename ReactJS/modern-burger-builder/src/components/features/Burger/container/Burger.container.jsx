@@ -4,7 +4,7 @@ import BurgerView from "../views";
 import { getBurgerIngredients, setBurgerIngredients } from "./Burger.actions";
 import { getIngredients } from "./Burger.selectors";
 
-class Burger extends React.PureComponent {
+export class Burger extends React.PureComponent {
   constructor(props) {
     super(props);
 

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BurgerView /> Should match snapshot 1`] = `
+<Fragment>
+  <withStyle
+    show={true}
+    showModal={[Function]}
+  >
+    <withStyle
+      burgerPrice="23"
+      ingredients={
+        Object {
+          "Bacon": 1,
+          "Cheese": 1,
+          "Meat": 1,
+        }
+      }
+      showModal={[Function]}
+    />
+  </withStyle>
+  <withStyle
+    ingredients={
+      Object {
+        "Bacon": 1,
+        "Cheese": 1,
+        "Meat": 1,
+      }
+    }
+  />
+  <burgerview__PriceLabel>
+    Burger Price : $
+    23
+  </burgerview__PriceLabel>
+  <withStyle
+    ingredients={
+      Object {
+        "Bacon": 1,
+        "Cheese": 1,
+        "Meat": 1,
+      }
+    }
+    ingredientsHandler={[Function]}
+    purchasable={true}
+    showModal={[Function]}
+  />
+</Fragment>
+`;

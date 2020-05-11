@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OrderSummery /> Should match snapshot 1`] = `
+<OrderSummery
+  burgerPrice={23}
+  className="withStyle-sc-1y71933-0 kXuyiV"
+  hideModal={[Function]}
+  ingredients={
+    Object {
+      "Bacon": 1,
+      "Cheese": 1,
+      "Meat": 1,
+    }
+  }
+  ingredientsHandler={[Function]}
+  purchasable={true}
+  show={true}
+  showModal={[Function]}
+/>
+`;

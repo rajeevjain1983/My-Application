@@ -14,7 +14,7 @@ const BurgerReducer = (state = initialState, action) => {
       if (state instanceof Object) {
         return fromJS(state);
       }
-      return state;
+    // return state;
   }
 };
 
