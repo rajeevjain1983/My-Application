@@ -6,7 +6,6 @@ const initialState = fromJS({
 });
 
 const BurgerReducer = (state = initialState, action) => {
-  console.log("BurgerReducer", action);
   switch (action.type) {
     case BurgerConstants.SetBurgerIngredients:
       return state.set("ingredients", action.payload);

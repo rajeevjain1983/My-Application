@@ -27,11 +27,10 @@ const OrderHistoryView = ({ className, orderHistoryData }) => {
           </div>
           <div className="address-container">
             <p>Delivery Address</p>
-            <p>Name : {data.customerInfo.name}</p>
-            <p>Phone : {data.customerInfo.phone}</p>
-            <p>Area : {data.customerInfo.address.area}</p>
-            <p>City : {data.customerInfo.address.city}</p>
-            <p>District : {data.customerInfo.address.district}</p>
+            <p>Name : {data.customerInfo.customerName}</p>
+            <p>Phone : {data.customerInfo.customerPhone}</p>
+            <p>Area : {data.customerInfo.customerEmail}</p>
+            <p>City : {data.customerInfo.customerAddress}</p>
           </div>
         </div>
       );

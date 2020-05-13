@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
 import {
   OrderHistoryConstants,
   BurgerConstants,
@@ -9,4 +10,5 @@ import BurgerReducer from "../../components/features/Burger/container/Burger.Red
 export default combineReducers({
   [OrderHistoryConstants.OrderHistoryReducerKey]: OrderHistoryReducer,
   [BurgerConstants.BurgerReducerKey]: BurgerReducer,
+  form: formReducer,
 });

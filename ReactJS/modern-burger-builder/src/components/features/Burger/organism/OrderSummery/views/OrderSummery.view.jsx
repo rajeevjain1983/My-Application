@@ -2,29 +2,22 @@ import React from "react";
 import axios from "../../../../../../service/axios_order";
 import Router from "next/router";
 
-import { Button } from "../../../../../common/atoms";
 import withStyle from "../../../../../common/hoc/withStyle";
 import styles from "../style/OrderSummery.style";
+import CustomerForm from "../../CustomerForm";
 
 const OrderSummery = ({ className, ingredients, burgerPrice, showModal }) => {
-  const placeOrder = () => {
+  const placeOrder = (values) => {
     const order = {
       ingredients,
       burgerPrice,
       customerInfo: {
-        name: "Rajeev",
-        phone: "9971222558",
-        email: "rajeevjain1508@gmail.com",
-        address: {
-          city: "Noida",
-          area: "Sector-137",
-          district: "GBNagar",
-        },
+        ...values,
       },
     };
 
     axios
-      .post("/orders.json", order)
+      .post("/orders.jsonnn", order)
       .then((res) => {
         console.log(res);
         if (res && res.status === 200) {
@@ -32,7 +25,9 @@ const OrderSummery = ({ className, ingredients, burgerPrice, showModal }) => {
           Router.replace("/");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const burgerIngredients = Object.keys(ingredients).map((key, index) => {
@@ -49,11 +44,8 @@ const OrderSummery = ({ className, ingredients, burgerPrice, showModal }) => {
         <ul>{burgerIngredients}</ul>
         <p>Your burger Price is ${burgerPrice}</p>
       </div>
-      <div className="btnContainer">
-        <Button onClick={placeOrder} className="btnStyle">
-          Continue
-        </Button>
-        <Button onClick={() => showModal(false)}>Cancel</Button>
+      <div>
+        <CustomerForm placeOrder={placeOrder} />
       </div>
     </div>
   );

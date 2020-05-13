@@ -338,6 +338,107 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/components/common/atoms/Input/index.js":
+/*!****************************************************!*\
+  !*** ./src/components/common/atoms/Input/index.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _views__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views */ "./src/components/common/atoms/Input/views/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _views__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./src/components/common/atoms/Input/style/Input.style.jsx":
+/*!*****************************************************************!*\
+  !*** ./src/components/common/atoms/Input/style/Input.style.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])([".error{color:red;}"]));
+
+/***/ }),
+
+/***/ "./src/components/common/atoms/Input/views/Input.view.jsx":
+/*!****************************************************************!*\
+  !*** ./src/components/common/atoms/Input/views/Input.view.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hoc_withStyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hoc/withStyle */ "./src/components/common/hoc/withStyle.jsx");
+/* harmony import */ var _style_Input_style__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../style/Input.style */ "./src/components/common/atoms/Input/style/Input.style.jsx");
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+const Input = (_ref) => {
+  let {
+    className,
+    label,
+    type,
+    input,
+    meta: {
+      touched,
+      error
+    }
+  } = _ref,
+      restProps = _objectWithoutProperties(_ref, ["className", "label", "type", "input", "meta"]);
+
+  return __jsx("div", {
+    className: className
+  }, __jsx("label", null, label), __jsx("input", _extends({
+    type: type
+  }, input, {
+    placeholder: label
+  }, restProps)), touched && error && __jsx("span", {
+    className: "error"
+  }, error));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_hoc_withStyle__WEBPACK_IMPORTED_MODULE_1__["default"])(Input, _style_Input_style__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./src/components/common/atoms/Input/views/index.js":
+/*!**********************************************************!*\
+  !*** ./src/components/common/atoms/Input/views/index.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Input_view__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Input.view */ "./src/components/common/atoms/Input/views/Input.view.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Input_view__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
 /***/ "./src/components/common/atoms/ToggleButton/index.js":
 /*!***********************************************************!*\
   !*** ./src/components/common/atoms/ToggleButton/index.js ***!
@@ -442,7 +543,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./src/components/common/atoms/index.js ***!
   \**********************************************/
-/*! exports provided: ToggleButton, Button */
+/*! exports provided: ToggleButton, Button, Input */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -452,6 +553,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Button */ "./src/components/common/atoms/Button/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return _Button__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Input */ "./src/components/common/atoms/Input/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Input", function() { return _Input__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
 
 
 
@@ -521,8 +626,6 @@ const initialState = Object(immutable__WEBPACK_IMPORTED_MODULE_0__["fromJS"])({
 });
 
 const BurgerReducer = (state = initialState, action) => {
-  console.log("BurgerReducer", action);
-
   switch (action.type) {
     case _common_constants__WEBPACK_IMPORTED_MODULE_1__["BurgerConstants"].SetBurgerIngredients:
       return state.set("ingredients", action.payload);
@@ -532,7 +635,7 @@ const BurgerReducer = (state = initialState, action) => {
         return Object(immutable__WEBPACK_IMPORTED_MODULE_0__["fromJS"])(state);
       }
 
-      return state;
+    // return state;
   }
 };
 
@@ -1058,16 +1161,20 @@ class burger_app extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_common_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/common/constants */ "./src/components/common/constants/index.js");
-/* harmony import */ var _components_features_OrderHistory_container_OrderHistory_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/features/OrderHistory/container/OrderHistory.reducer */ "./src/components/features/OrderHistory/container/OrderHistory.reducer.js");
-/* harmony import */ var _components_features_Burger_container_Burger_Reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/features/Burger/container/Burger.Reducer */ "./src/components/features/Burger/container/Burger.Reducer.js");
+/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ "redux-form");
+/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_form__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_common_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/common/constants */ "./src/components/common/constants/index.js");
+/* harmony import */ var _components_features_OrderHistory_container_OrderHistory_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/features/OrderHistory/container/OrderHistory.reducer */ "./src/components/features/OrderHistory/container/OrderHistory.reducer.js");
+/* harmony import */ var _components_features_Burger_container_Burger_Reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/features/Burger/container/Burger.Reducer */ "./src/components/features/Burger/container/Burger.Reducer.js");
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  [_components_common_constants__WEBPACK_IMPORTED_MODULE_1__["OrderHistoryConstants"].OrderHistoryReducerKey]: _components_features_OrderHistory_container_OrderHistory_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  [_components_common_constants__WEBPACK_IMPORTED_MODULE_1__["BurgerConstants"].BurgerReducerKey]: _components_features_Burger_container_Burger_Reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  [_components_common_constants__WEBPACK_IMPORTED_MODULE_2__["OrderHistoryConstants"].OrderHistoryReducerKey]: _components_features_OrderHistory_container_OrderHistory_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  [_components_common_constants__WEBPACK_IMPORTED_MODULE_2__["BurgerConstants"].BurgerReducerKey]: _components_features_Burger_container_Burger_Reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  form: redux_form__WEBPACK_IMPORTED_MODULE_1__["reducer"]
 }));
 
 /***/ }),
@@ -1740,6 +1847,17 @@ module.exports = require("redux");
 /***/ (function(module, exports) {
 
 module.exports = require("redux-devtools-extension");
+
+/***/ }),
+
+/***/ "redux-form":
+/*!*****************************!*\
+  !*** external "redux-form" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-form");
 
 /***/ }),
 
