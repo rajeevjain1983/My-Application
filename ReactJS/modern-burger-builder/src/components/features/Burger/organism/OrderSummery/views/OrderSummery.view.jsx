@@ -17,7 +17,7 @@ const OrderSummery = ({ className, ingredients, burgerPrice, showModal }) => {
     };
 
     axios
-      .post("/orders.jsonnn", order)
+      .post("/orders.json", order)
       .then((res) => {
         console.log(res);
         if (res && res.status === 200) {
