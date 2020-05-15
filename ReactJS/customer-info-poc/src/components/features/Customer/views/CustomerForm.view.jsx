@@ -31,10 +31,6 @@ const checkValidation = (values) => {
      and check that it's 15 characters or fewer.`;
   }
 
-  if (!values.nameChanged) {
-    errors.nameChanged = "Please choose Name Changed.";
-  }
-
   if (!values.dateOfBirth) {
     errors.dateOfBirth = "Please enter Date of Birth.";
   } else if (!values.dateOfBirth.match(dateformat)) {
@@ -45,7 +41,6 @@ const checkValidation = (values) => {
 };
 
 const renderNameChanged = ({ meta: { touched, error, warning } }) => {
-  console.log("meta", error);
   return (
     <div className="radio-container">
       <label>
@@ -80,7 +75,6 @@ const CustomerForm = ({
   submitCustomer,
   ...restProps
 }) => {
-  console.log("restProps", restProps);
   return (
     <div className={className}>
       <form onSubmit={handleSubmit(submitCustomer)}>
@@ -99,12 +93,7 @@ const CustomerForm = ({
         <div className="field-container">
           <label>First Name</label>
           <div className="field">
-            <Field
-              component={Input}
-              type="text"
-              name="firstName"
-              autoComplete="false"
-            />
+            <Field component={Input} type="text" name="firstName" />
           </div>
         </div>
 
@@ -137,7 +126,11 @@ const CustomerForm = ({
           >
             Save
           </Button>
-          <Button className="btnCancel" disabled={pristine || submitting}>
+          <Button
+            onClick={reset}
+            className="btnCancel"
+            disabled={pristine || submitting}
+          >
             Cancel
           </Button>
         </div>

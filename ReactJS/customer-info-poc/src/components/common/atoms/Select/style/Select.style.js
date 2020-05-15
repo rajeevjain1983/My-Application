@@ -19,6 +19,7 @@ export default css`
     appearance: none;
     color: #d8d8d8;
     font-size: 18px;
+    background: url(/carrot-small-down.png) right 5px bottom 15px no-repeat;
   }
   select:focus {
     border: 1px solid orange;

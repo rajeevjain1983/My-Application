@@ -2,7 +2,6 @@ import { css } from "styled-components";
 
 const styles = css`
   background-image: linear-gradient(to right, black, gray);
-
   .nav-container {
     display: flex;
     color: white;

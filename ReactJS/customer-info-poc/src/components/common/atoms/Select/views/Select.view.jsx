@@ -9,7 +9,6 @@ const Select = ({
   children,
   ...restProps
 }) => {
-  console.log("error", error);
   return (
     <div className={className}>
       <select className="" {...input} {...restProps}>

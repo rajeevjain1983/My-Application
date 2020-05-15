@@ -4,7 +4,7 @@ import styles from "../style/Backdrop.style";
 
 const Backdrop = ({ className, show, backdropHandler }) => {
   return show ? (
-    <div onClick={() => backdropHandler(false)} className={className}></div>
+    <div onClick={() => backdropHandler({})} className={className}></div>
   ) : (
     ""
   );

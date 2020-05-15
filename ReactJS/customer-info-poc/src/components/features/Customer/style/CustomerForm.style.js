@@ -1,8 +1,7 @@
 import { css } from "styled-components";
 
 export default css`
-  width: 400px;
-  margin: 10px auto;
+  margin: 0 auto;
   padding: 20px;
   background-color: white;
   overflow: scroll;
@@ -16,13 +15,16 @@ export default css`
     font-weight: bold;
   }
   .field {
-    width: 300px;
     margin-top: 5px;
-    /* border: 1px solid black; */
+    @media (min-width: 768px) {
+      width: 80%;
+    }
   }
   .btn-Container {
-    width: 300px;
     display: flex;
+    @media (min-width: 768px) {
+      width: 80%;
+    }
   }
   .radio-container {
     width: 100%;
@@ -33,5 +35,9 @@ export default css`
 
   .btnCancel {
     margin-left: 5px;
+  }
+
+  @media (min-width: 768px) {
+    width: 400px;
   }
 `;

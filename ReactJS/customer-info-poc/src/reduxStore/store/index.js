@@ -11,7 +11,6 @@ const configureStore = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
-console.log("configured saga");
 sagaMiddleware.run(globalSaga);
 
 export default configureStore;

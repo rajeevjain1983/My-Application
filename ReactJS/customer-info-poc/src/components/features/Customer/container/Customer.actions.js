@@ -19,3 +19,10 @@ export const saveCustomerDetails = (payload) => {
     payload,
   };
 };
+
+export const saveSuccess = (payload) => {
+  return {
+    type: CustomerConstants.SaveCallSuccess,
+    payload,
+  };
+};

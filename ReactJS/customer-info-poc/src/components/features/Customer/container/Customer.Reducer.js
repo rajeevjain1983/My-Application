@@ -9,6 +9,8 @@ const CustomerReducer = (state = initialState, action) => {
   switch (action.type) {
     case CustomerConstants.SetCustomerDetails:
       return state.set("customerDetail", action.payload);
+    case CustomerConstants.SaveCallSuccess:
+      return state.set("saveCallSuccess", action.payload);
     default:
       if (state instanceof Object) {
         return fromJS(state);

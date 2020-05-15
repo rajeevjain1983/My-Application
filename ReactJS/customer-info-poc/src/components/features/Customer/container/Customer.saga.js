@@ -4,6 +4,7 @@ import { CustomerConstants } from "../../../common/constants";
 import {
   setCustomerDetails,
   fetchCustomerDetails,
+  saveSuccess,
 } from "../../Customer/container/Customer.actions";
 
 export function* getCustomerDetail() {
@@ -18,7 +19,11 @@ export function* getCustomerDetail() {
 export function* saveCustomerDetail({ payload }) {
   try {
     const response = yield axios.post("/customerDetail.json", payload);
-    console.log(response);
+    if (response.status === 200) {
+      console.log(response);
+      yield put(saveSuccess({ success: true, customerId: response.data.name }));
+    }
+
     yield put(fetchCustomerDetails());
   } catch (ex) {
     console.log("Error", ex);

@@ -7,3 +7,8 @@ export const getCustomers = createSelector(
   getState,
   (state) => state && state.get("customerDetail")
 );
+
+export const getSaveCallSuccessStatus = createSelector(
+  getState,
+  (state) => state && state.get("saveCallSuccess")
+);
