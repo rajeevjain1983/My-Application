@@ -7,8 +7,8 @@ export default css`
     width: 100%;
     margin: 0 auto;
     position: relative;
-
-    background-color: white;
+    background-color: #f3f3f3;
     color: black;
+    font-size: 16px;
   }
 `;

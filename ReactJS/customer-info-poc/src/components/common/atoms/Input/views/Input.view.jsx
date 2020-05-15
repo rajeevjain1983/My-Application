@@ -13,7 +13,12 @@ const Input = ({
   return (
     <div className={className}>
       <input type={type} {...input} {...restProps}></input>
-      {touched && error && <span className="error">{error}</span>}
+      {touched && error && (
+        <div className="error-container">
+          <strong>Warning: </strong>
+          {error}
+        </div>
+      )}
     </div>
   );
 };

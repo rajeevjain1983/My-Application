@@ -1,19 +1,34 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { Input, Button, Select } from "../../../common/atoms";
+import withStyle from "../../../common/hoc/withStyle";
+import styles from "../style/CustomerForm.style";
 
 const checkValidation = (values) => {
   const errors = {};
-  if (values.title === "Select") {
+  const dateformat = /^(0?[1-9]|[12][0-9]|3[01])[/-](0?[1-9]|1[012])[/-]\d{4}$/;
+  if (values.title === "Select" || !values.title) {
     errors.title = "Please choose a title.";
   }
 
   if (!values.firstName) {
     errors.firstName = "Please enter first name.";
+  } else if (
+    !/^[a-zA-Z-' ]*$/g.test(values.firstName) ||
+    values.firstName.length > 15
+  ) {
+    errors.firstName = `Please enter your name using letters (hyphens,apostrophes and spaces are accepted)
+     and check that it's 15 characters or fewer.`;
   }
 
   if (!values.lastName) {
     errors.lastName = "Please enter last name.";
+  } else if (
+    !/^[a-zA-Z-' ]*$/g.test(values.lastName) ||
+    values.lastName.length > 15
+  ) {
+    errors.lastName = `Please enter your name using letters (hyphens,apostrophes and spaces are accepted)
+     and check that it's 15 characters or fewer.`;
   }
 
   if (!values.nameChanged) {
@@ -22,6 +37,8 @@ const checkValidation = (values) => {
 
   if (!values.dateOfBirth) {
     errors.dateOfBirth = "Please enter Date of Birth.";
+  } else if (!values.dateOfBirth.match(dateformat)) {
+    errors.dateOfBirth = "Please check you've entered invalid Date.";
   }
 
   return errors;
@@ -30,9 +47,14 @@ const checkValidation = (values) => {
 const renderNameChanged = ({ meta: { touched, error, warning } }) => {
   console.log("meta", error);
   return (
-    <div>
+    <div className="radio-container">
       <label>
-        <Field name="nameChanged" component="input" type="radio" value="yes" />
+        <Field
+          name="nameChanged"
+          component={"input"}
+          type="radio"
+          value="yes"
+        />
         Yes
       </label>
       <label>
@@ -50,6 +72,7 @@ const renderNameChanged = ({ meta: { touched, error, warning } }) => {
 };
 
 const CustomerForm = ({
+  className,
   handleSubmit,
   pristine,
   reset,
@@ -59,49 +82,64 @@ const CustomerForm = ({
 }) => {
   console.log("restProps", restProps);
   return (
-    <div>
+    <div className={className}>
       <form onSubmit={handleSubmit(submitCustomer)}>
-        <div>
+        <div className="field-container">
           <label>Title</label>
-          <Field name="title" component={Select}>
-            <option>Select</option>
-            <option value="Mr">Mr</option>
-            <option value="Mrs">Mrs</option>
-            <option value="Miss">Miss</option>
-          </Field>
+          <div className="field">
+            <Field name="title" component={Select}>
+              <option defaultChecked>Select</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+            </Field>
+          </div>
         </div>
 
-        <div>
+        <div className="field-container">
           <label>First Name</label>
-          <Field component={Input} type="text" name="firstName" />
+          <div className="field">
+            <Field
+              component={Input}
+              type="text"
+              name="firstName"
+              autoComplete="false"
+            />
+          </div>
         </div>
 
-        <div>
+        <div className="field-container">
           <label>Last Name</label>
-          <Field component={Input} type="text" name="lastName" />
+          <div className="field">
+            <Field component={Input} type="text" name="lastName" />
+          </div>
         </div>
 
-        <div>
+        <div className="field-container">
           <label>Has your name changed in the last 12 months?</label>
-          <Field component={renderNameChanged} type="text" name="lastName" />
+          <div className="field">
+            <Field component={renderNameChanged} type="text" name="lastName" />
+          </div>
         </div>
 
-        <div>
+        <div className="field-container">
           <label>Date of Birth</label>
-          <Field component={Input} type="text" name="dateOfBirth" />
+          <div className="field">
+            <Field component={Input} type="text" name="dateOfBirth" />
+          </div>
         </div>
 
-        {/* {error && <strong>{error}</strong>} */}
-        <div className="btnContainer">
+        <div className="btn-Container">
           <Button
             type="submit"
             className="btnStyle"
             // disabled={pristine || submitting}
           >
-            Continue!
+            Save
           </Button>
-          <Button disabled={pristine || submitting}>Cancel</Button>
-          {/* <Button onClick={() => showModal(false)}>Cancel</Button> */}
+          <Button className="btnCancel" disabled={pristine || submitting}>
+            Cancel
+          </Button>
         </div>
       </form>
     </div>
@@ -111,4 +149,4 @@ const CustomerForm = ({
 export default reduxForm({
   form: "customerForm",
   validate: checkValidation,
-})(CustomerForm);
+})(withStyle(CustomerForm, styles));

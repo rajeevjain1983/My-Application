@@ -12,10 +12,15 @@ const Select = ({
   console.log("error", error);
   return (
     <div className={className}>
-      <select {...input} {...restProps}>
+      <select className="" {...input} {...restProps}>
         {children}
       </select>
-      {touched && error && <span className="error">{error}</span>}
+      {touched && error && (
+        <div className="error-container">
+          <strong>Warning: </strong>
+          {error}
+        </div>
+      )}
     </div>
   );
 };

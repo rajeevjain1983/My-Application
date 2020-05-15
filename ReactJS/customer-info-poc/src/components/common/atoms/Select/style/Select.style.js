@@ -8,17 +8,19 @@ export default css`
     font-size: 18px;
   }
 
-  input {
+  select {
     border: 1px solid #d8d8d8;
     background-color: white;
-    color: #d8d8d8;
-    font-size: 18px;
+    border-radius: 0px;
+    outline: 0px;
     padding: 10px;
     width: 100%;
-    box-sizing: border-box;
+    outline-style: none;
+    appearance: none;
+    color: #d8d8d8;
+    font-size: 18px;
   }
-
-  input:focus {
+  select:focus {
     border: 1px solid orange;
     outline-style: none;
     color: black;
