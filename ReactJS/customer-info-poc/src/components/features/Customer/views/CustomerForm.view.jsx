@@ -66,7 +66,7 @@ const renderNameChanged = ({ meta: { touched, error, warning } }) => {
   );
 };
 
-const CustomerForm = ({
+export const CustomerForm = ({
   className,
   handleSubmit,
   pristine,

@@ -9,7 +9,6 @@ const CustomerDetail = ({ customer, showModal }) => {
         Name :{`${customer.title} ${customer.firstName} ${customer.lastName}`}
       </p>
       <p>Date of Birth: {customer.dateOfBirth}</p>
-      <p>Date of Birth: {customer.dateOfBirth}</p>
       <p>
         Has your name changed in the last 12 months? : {customer.nameChanged}
       </p>

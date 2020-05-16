@@ -22,9 +22,8 @@ export function* saveCustomerDetail({ payload }) {
     if (response.status === 200) {
       console.log(response);
       yield put(saveSuccess({ success: true, customerId: response.data.name }));
+      yield put(fetchCustomerDetails());
     }
-
-    yield put(fetchCustomerDetails());
   } catch (ex) {
     console.log("Error", ex);
   }
