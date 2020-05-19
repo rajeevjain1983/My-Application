@@ -1,6 +1,12 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
-import { Input, Button, Select } from "../../../common/atoms";
+import {
+  Input,
+  Button,
+  Select,
+  DatePicker,
+  RadioButtons,
+} from "../../../common/atoms";
 import withStyle from "../../../common/hoc/withStyle";
 import styles from "../style/CustomerForm.style";
 
@@ -33,111 +39,146 @@ const checkValidation = (values) => {
 
   if (!values.dateOfBirth) {
     errors.dateOfBirth = "Please enter Date of Birth.";
-  } else if (!values.dateOfBirth.match(dateformat)) {
-    errors.dateOfBirth = "Please check you've entered invalid Date.";
+  } else {
+    const date = new Date(values.dateOfBirth);
+    const dateOfBirth = date.toLocaleDateString();
+    if (!dateOfBirth.match(dateformat)) {
+      errors.dateOfBirth = "Please check you've entered invalid Date.";
+    }
+  }
+
+  if (!values.nameChanged) {
+    errors.nameChanged =
+      "Please choose field 'Has your name changed in the last 12 months?'";
   }
 
   return errors;
 };
 
-const renderNameChanged = ({ meta: { touched, error, warning } }) => {
-  return (
-    <div className="radio-container">
-      <label>
-        <Field
-          name="nameChanged"
-          component={"input"}
-          type="radio"
-          value="yes"
-        />
-        Yes
-      </label>
-      <label>
-        <Field
-          name="nameChanged"
-          component="input"
-          checked
-          type="radio"
-          value="no"
-        />
-        No
-      </label>
-    </div>
-  );
-};
+export class CustomerForm extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dateOfBirth: new Date(),
+    };
 
-export const CustomerForm = ({
-  className,
-  handleSubmit,
-  pristine,
-  reset,
-  submitting,
-  submitCustomer,
-  ...restProps
-}) => {
-  return (
-    <div className={className}>
-      <form onSubmit={handleSubmit(submitCustomer)}>
-        <div className="field-container">
-          <label>Title</label>
-          <div className="field">
-            <Field name="title" component={Select}>
-              <option defaultChecked>Select</option>
-              <option value="Mr">Mr</option>
-              <option value="Mrs">Mrs</option>
-              <option value="Miss">Miss</option>
-            </Field>
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(date) {
+    this.setState({
+      dateOfBirth: date,
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    const { saveCallStatus, reset } = this.props;
+    if (
+      saveCallStatus &&
+      saveCallStatus.success &&
+      prevProps.saveCallStatus !== saveCallStatus &&
+      reset
+    ) {
+      reset();
+    }
+  }
+
+  render() {
+    const {
+      className,
+      handleSubmit,
+      pristine,
+      reset,
+      submitting,
+      submitCustomer,
+    } = this.props;
+    return (
+      <div className={className}>
+        <form autoComplete="off" onSubmit={handleSubmit(submitCustomer)}>
+          <div className="field-container">
+            <label>Title</label>
+            <div className="field">
+              <Field name="title" component={Select}>
+                <option defaultChecked>Select</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+              </Field>
+            </div>
           </div>
-        </div>
 
-        <div className="field-container">
-          <label>First Name</label>
-          <div className="field">
-            <Field component={Input} type="text" name="firstName" />
+          <div className="field-container">
+            <label>First Name</label>
+            <div className="field">
+              <Field
+                autoComplete="of"
+                component={Input}
+                type="text"
+                name="firstName"
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="field-container">
-          <label>Last Name</label>
-          <div className="field">
-            <Field component={Input} type="text" name="lastName" />
+          <div className="field-container">
+            <label>Last Name</label>
+            <div className="field">
+              <Field
+                autoComplete="of"
+                component={Input}
+                type="text"
+                name="lastName"
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="field-container">
-          <label>Has your name changed in the last 12 months?</label>
-          <div className="field">
-            <Field component={renderNameChanged} type="text" name="lastName" />
+          <div className="field-container">
+            <label>Has your name changed in the last 12 months?</label>
+            <div className="field">
+              <Field
+                name="nameChanged"
+                component={RadioButtons}
+                options={[
+                  { title: "Yes", value: "yes" },
+                  { title: "No", value: "no" },
+                ]}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="field-container">
-          <label>Date of Birth</label>
-          <div className="field">
-            <Field component={Input} type="text" name="dateOfBirth" />
+          <div className="field-container">
+            <label>Date of Birth</label>
+            <div className="field">
+              <Field
+                selected={this.state.dateOfBirth}
+                onChange={this.handleChange}
+                component={DatePicker}
+                type="text"
+                name="dateOfBirth"
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="btn-Container">
-          <Button
-            type="submit"
-            className="btnStyle"
-            // disabled={pristine || submitting}
-          >
-            Save
-          </Button>
-          <Button
-            onClick={reset}
-            className="btnCancel"
-            disabled={pristine || submitting}
-          >
-            Cancel
-          </Button>
-        </div>
-      </form>
-    </div>
-  );
-};
+          <div className="btn-Container">
+            <Button
+              type="submit"
+              className="btnStyle"
+              // disabled={pristine || submitting}
+            >
+              Save
+            </Button>
+            <Button
+              onClick={reset}
+              className="btnCancel"
+              disabled={pristine || submitting}
+            >
+              Cancel
+            </Button>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
 
 export default reduxForm({
   form: "customerForm",
