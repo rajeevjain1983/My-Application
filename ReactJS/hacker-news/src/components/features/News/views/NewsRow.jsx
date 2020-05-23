@@ -14,7 +14,10 @@ const NewsRow = ({
         <span className="comments">{data.num_comments}</span>
         <div className="upVotes">
           <span>{data.upVotes}</span>
-          <button onClick={() => upVotesButtonHandler(data.index)} class="link">
+          <button
+            onClick={() => upVotesButtonHandler(data.index)}
+            className="link"
+          >
             <span className="voteArrow"></span>
           </button>
         </div>
@@ -27,7 +30,10 @@ const NewsRow = ({
         <div className="col wrap">
           <span className="marginRight">{`by ${data.author} `}</span>
           <span className="colorGray">{`${data.created_at}  `}</span>
-          <button onClick={() => hideButtonHandler(data.index)} class="link">
+          <button
+            onClick={() => hideButtonHandler(data.index)}
+            className="link"
+          >
             [ hide ]
           </button>
         </div>

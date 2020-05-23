@@ -2,10 +2,15 @@
 export const formatNewsData = (newsData) => {
   const newsList = [];
 
+  const pageInfo = {
+    apiPageNumber: newsData.page,
+    pageNumber: newsData.page + 1,
+    nextPage: newsData.page + 2,
+  };
+
   if (newsData && newsData.hits) {
     newsData.hits.forEach((data, index) => {
       const news = {};
-      news.nextPage = newsData.page + 2;
       news.index = index + 1;
       news.title = data.title;
       news.points = data.points;
@@ -19,5 +24,5 @@ export const formatNewsData = (newsData) => {
     });
   }
 
-  return newsList;
+  return { pageInfo, newsList };
 };

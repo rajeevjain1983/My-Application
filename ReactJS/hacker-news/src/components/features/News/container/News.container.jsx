@@ -1,5 +1,6 @@
 import React from "react";
-import axiosNews from "../../../../service/axios_news";
+import Router from "next/router";
+import { getNewsDataFromApi } from "../../../../service/NewsApi";
 import { formatNewsData } from "../../../common/Util";
 import NewsView from "../views";
 
@@ -10,54 +11,89 @@ export class NewsContainer extends React.PureComponent {
       news: null,
     };
 
+    this.syncLocalStorage = this.syncLocalStorage.bind(this);
     this.updateLocalStorage = this.updateLocalStorage.bind(this);
     this.hideComment = this.hideComment.bind(this);
-    this.updateState = this.updateState.bind(this);
     this.upVotes = this.upVotes.bind(this);
+    this.getNewsData = this.getNewsData.bind(this);
   }
 
   componentDidMount() {
-    const { newsData, pageNumber } = this.props;
+    console.log("componentDidMount");
+    this.syncLocalStorage();
+  }
 
-    if (localStorage.getItem(pageNumber)) {
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+    const { news } = this.state;
+    const pageNumber = Router.query && Router.query.p ? Router.query.p : 1;
+
+    if (news.pageInfo.pageNumber !== parseInt(pageNumber)) {
+      this.syncLocalStorage();
+    }
+  }
+
+  async syncLocalStorage() {
+    const pageNumber = Router.query && Router.query.p ? Router.query.p : 1;
+    if (localStorage.getItem(pageNumber) === null) {
+      console.log(`No Data for Page Number:${pageNumber}`);
+      const newsData = await this.getNewsData();
+      newsData && this.setState({ news: newsData }, this.updateLocalStorage);
       console.log(
-        `Data is null for Page Number=>${pageNumber}, now we are setting`
+        `Set Data in localStorage for Page Number:${pageNumber}`,
+        newsData
       );
-      newsData && newsData.length > 0 && this.updateState(newsData);
     } else {
       const newsData = localStorage.getItem(pageNumber);
       this.setState({ news: JSON.parse(newsData) });
-      console.log(`Data is in local Storage for ${pageNumber}`);
+      console.log(`Get Data from localStorage for Page Number:${pageNumber}`);
+    }
+  }
+
+  // Gets news Data from Props if Data is already loaded from server else will be fetch fro api
+  async getNewsData() {
+    const pageNumber = Router.query && Router.query.p ? Router.query.p : 1;
+    if (
+      this.props.newsData &&
+      this.props.newsData.pageInfo.pageNumber === pageNumber
+    ) {
+      // News Data is already setup from Server
+      console.log("Get Data from Props");
+      return this.props.newsData;
+    } else {
+      //Api Call to set News Data
+      const p = Router.query && Router.query.p ? Router.query.p : 0;
+      const apiPageNumber = p > 0 ? p - 1 : 0;
+      const newsData = await getNewsDataFromApi(apiPageNumber);
+      console.log("Get Data from api call");
+      return newsData;
     }
   }
 
   updateLocalStorage() {
-    const { pageNumber } = this.props;
+    const pageNumber = Router.query && Router.query.p ? Router.query.p : 1;
     localStorage.setItem(pageNumber, JSON.stringify(this.state.news));
   }
 
-  updateState(newsData) {
-    this.setState({ news: newsData }, this.updateLocalStorage);
-  }
-
+  // Hide Story
   hideComment(index) {
     console.log("hide Index", index);
-    const newsData = [...this.state.news];
-    const newsItem = newsData.filter((data) => {
+    const newsData = { ...this.state.news };
+    const newsItem = newsData.newsList.filter((data) => {
       return data.index === index;
     });
     newsItem[0].hide = true;
-    this.updateState(newsData);
+    this.setState({ news: newsData }, this.updateLocalStorage);
   }
 
+  //up votes when click on arrow
   upVotes(index) {
-    console.log("hide Index", index);
-    const newsData = [...this.state.news];
-    const newsItem = newsData.filter((data) => {
+    const newsData = { ...this.state.news };
+    const newsItem = newsData.newsList.filter((data) => {
       return data.index === index;
     });
     newsItem[0].upVotes++;
-    this.updateState(newsData);
+    this.setState({ news: newsData }, this.updateLocalStorage);
   }
 
   render() {
@@ -77,15 +113,11 @@ export class NewsContainer extends React.PureComponent {
 //Server side rendering || Getting data from API and setting props
 NewsContainer.getInitialProps = async (context) => {
   const p = context && context.query && context.query.p ? context.query.p : 0;
-
   // page Number start in api from 0 index so need to subtract -1
   const apiPageNumber = p > 0 ? p - 1 : 0;
 
-  const queryString = apiPageNumber ? `&page=${apiPageNumber}` : "&page=0";
-  const url = `/search?query=foo&tags=story${queryString}`;
-  console.log("URL", url);
-  const res = await axiosNews.get(url);
-  return { newsData: formatNewsData(res.data), pageNumber: apiPageNumber + 1 };
+  const newsData = await getNewsDataFromApi(apiPageNumber);
+  return { newsData };
 };
 
 export default NewsContainer;
