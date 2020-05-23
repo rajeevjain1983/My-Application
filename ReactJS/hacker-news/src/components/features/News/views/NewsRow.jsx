@@ -25,7 +25,7 @@ const NewsRow = ({
       <div className="col wrap">
         <div className="col wrap">
           <span className="marginRight">{data.title}</span>
-          <span className="marginRight colorGray">{`(${data.linkDomain})`}</span>
+          <span className="marginRight colorGray">{data.linkDomain}</span>
         </div>
         <div className="col wrap">
           <span className="marginRight">{`by ${data.author} `}</span>

@@ -1,7 +1,6 @@
 import React from "react";
 import Router from "next/router";
 import { getNewsDataFromApi } from "../../../../service/NewsApi";
-import { formatNewsData } from "../../../common/Util";
 import NewsView from "../views";
 
 export class NewsContainer extends React.PureComponent {
