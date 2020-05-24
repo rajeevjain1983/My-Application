@@ -20,6 +20,11 @@ export default css`
     margin-right: 5px;
   }
 
+  a.title {
+    color: #000000;
+    text-decoration: none;
+  }
+
   .colorGray {
     color: #828282;
     font-size: 8pt;

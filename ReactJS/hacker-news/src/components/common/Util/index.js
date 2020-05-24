@@ -7,6 +7,7 @@ export const formatNewsData = (newsData) => {
     apiPageNumber: newsData.page,
     pageNumber: newsData.page + 1,
     nextPage: newsData.page + 2,
+    totalPages: newsData.nbPages,
   };
 
   if (newsData && newsData.hits) {

@@ -13,9 +13,6 @@ class NewsHackerApp extends App {
       <>
         <GlobalStyle />
         <title>News Hacker App</title>
-        <button onClick={() => localStorage.clear()}>
-          Clear Local Storage
-        </button>
         <Component {...pageProps} />
       </>
       //   </Provider>

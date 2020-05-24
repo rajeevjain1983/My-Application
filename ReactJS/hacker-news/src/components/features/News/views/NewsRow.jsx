@@ -24,7 +24,9 @@ const NewsRow = ({
       </div>
       <div className="col wrap">
         <div className="col wrap">
-          <span className="marginRight">{data.title}</span>
+          <a className="marginRight title" href={data.url}>
+            <span>{data.title}</span>
+          </a>
           <span className="marginRight colorGray">{data.linkDomain}</span>
         </div>
         <div className="col wrap">

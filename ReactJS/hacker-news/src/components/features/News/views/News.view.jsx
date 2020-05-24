@@ -25,7 +25,11 @@ const renderNewsData = (news, hideComment, upVotes) => {
   );
 };
 const NewsView = ({ className, news, hideComment, upVotes }) => {
-  const nextPageURL = `/news?p=${news.pageInfo.nextPage}`;
+  const {
+    pageInfo: { pageNumber, totalPages },
+  } = news;
+  const nextPageURL =
+    pageNumber < totalPages ? `/news?p=${news.pageInfo.nextPage}` : "/news";
   return (
     <div className={className}>
       <Header />

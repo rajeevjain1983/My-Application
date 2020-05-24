@@ -11,11 +11,8 @@ export default css`
     font-family: "verdana, Geneva, sans-serif";
     font-size: 11pt;
     color: #828282;
-    /* overflow-x: hidden;
+    overflow-x: hidden;
     width: 100%;
     margin: 0 auto;
-    position: relative;
-    background-color: #f3f3f3;
-    color: black; */
   }
 `;
