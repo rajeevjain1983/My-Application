@@ -5,14 +5,16 @@ import styles from "../style/header.style";
 const Header = (props) => {
   return (
     <div className={props.className}>
-      <a className="headerLink" onClick={() => localStorage.clear()} href="/">
-        <img className="headerImage" alt="" src="y18.gif" />
-      </a>
+      <div className="headerContainer">
+        <a className="headerLink" onClick={() => localStorage.clear()} href="/">
+          <img className="headerImage" alt="" src="y18.gif" />
+        </a>
 
-      <a className="link" href="/">
-        top
-      </a>
-      <a href="/">| new</a>
+        <a className="headerLink" href="/">
+          top
+        </a>
+        <a href="/">| new</a>
+      </div>
     </div>
   );
 };
