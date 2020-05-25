@@ -52,9 +52,11 @@ export class NewsContainer extends React.PureComponent {
   // Gets news Data from Props if Data is already loaded from server else will be fetch fro api
   async getNewsData() {
     const pageNumber = Router.query && Router.query.p ? Router.query.p : 1;
+
+    console.log("getNewsData", this.props.newsData, pageNumber);
     if (
       this.props.newsData &&
-      this.props.newsData.pageInfo.pageNumber === pageNumber
+      this.props.newsData.pageInfo.pageNumber === parseInt(pageNumber)
     ) {
       // News Data is already setup from Server
       console.log("Get Data from Props");
@@ -116,6 +118,7 @@ NewsContainer.getInitialProps = async (context) => {
   const apiPageNumber = p > 0 ? p - 1 : 0;
 
   const newsData = await getNewsDataFromApi(apiPageNumber);
+  console.log("getInitialProps", newsData);
   return { newsData };
 };
 
