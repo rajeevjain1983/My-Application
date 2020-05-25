@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-const styles = css`
+export default css`
   background-color: rgb(255, 102, 0);
   display: flex;
   align-items: center;
@@ -23,5 +23,3 @@ const styles = css`
     margin: 0px 5px 0px 10px;
   }
 `;
-
-export default styles;

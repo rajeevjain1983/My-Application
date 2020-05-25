@@ -4,7 +4,7 @@ export default css`
   padding: 10px;
   display: flex;
   padding-left: 30px;
-  font-size: 8pt;
+  font-size: 12pt;
   color: #000000;
   /* border: 1px solid black; */
   background-color: ${(props) =>
