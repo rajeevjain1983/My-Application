@@ -118,7 +118,7 @@ NewsContainer.getInitialProps = async (context) => {
   const apiPageNumber = p > 0 ? p - 1 : 0;
 
   const newsData = await getNewsDataFromApi(apiPageNumber);
-  console.log("getInitialProps", newsData);
+  console.log("getInitialProps");
   return { newsData };
 };
 

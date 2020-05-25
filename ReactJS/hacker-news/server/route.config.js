@@ -14,6 +14,11 @@ const ROUTES_LIST = [
     path: "/",
     resolver: "/news",
   },
+  {
+    noSlugPath: "hello",
+    path: "/hello",
+    resolver: "/news",
+  },
 ];
 
 module.exports = { ROUTES_LIST };
