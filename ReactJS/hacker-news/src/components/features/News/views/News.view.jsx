@@ -4,6 +4,7 @@ import NewsRow from "./NewsRow";
 import withStyle from "../../../common/hoc/withStyle";
 import styles from "../style/News.style";
 import Header from "../../content/Header";
+import Footer from "../../content/Footer";
 
 const renderNewsData = (news, hideComment, upVotes) => {
   return (
@@ -41,7 +42,7 @@ const NewsView = ({ className, news, hideComment, upVotes }) => {
           </a>
         </Link>
       </div>
-      <Header />
+      <Footer />
     </div>
   );
 };
