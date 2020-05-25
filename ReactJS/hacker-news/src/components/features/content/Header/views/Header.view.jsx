@@ -1,5 +1,4 @@
 import React from "react";
-
 import withStyle from "../../../../common/hoc/withStyle";
 import styles from "../styles/header.style";
 

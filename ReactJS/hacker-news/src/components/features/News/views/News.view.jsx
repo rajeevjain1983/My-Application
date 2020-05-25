@@ -41,6 +41,7 @@ const NewsView = ({ className, news, hideComment, upVotes }) => {
           </a>
         </Link>
       </div>
+      <Header />
     </div>
   );
 };
