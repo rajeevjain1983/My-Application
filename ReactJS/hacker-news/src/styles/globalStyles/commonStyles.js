@@ -9,7 +9,7 @@ export default css`
   }
   body {
     font-family: "verdana, Geneva, sans-serif";
-    font-size: 11pt;
+    font-size: 12pt;
     color: #828282;
     overflow-x: hidden;
     width: 100%;

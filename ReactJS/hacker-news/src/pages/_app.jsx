@@ -12,7 +12,7 @@ class NewsHackerApp extends App {
       //   <Provider store={configureStore}>
       <>
         <GlobalStyle />
-        <title>News Hacker App</title>
+
         <Component {...pageProps} />
       </>
       //   </Provider>
