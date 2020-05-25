@@ -32,18 +32,20 @@ const NewsView = ({ className, news, hideComment, upVotes }) => {
   const nextPageURL =
     pageNumber < totalPages ? `/news?p=${news.pageInfo.nextPage}` : "/news";
   return (
-    <div className={className}>
+    <>
       <Header />
-      <div>{renderNewsData(news, hideComment, upVotes)}</div>
-      <div>
-        <Link href={nextPageURL}>
-          <a className="moreLink" href={nextPageURL}>
-            More
-          </a>
-        </Link>
+      <div className={className}>
+        <div>{renderNewsData(news, hideComment, upVotes)}</div>
+        <div>
+          <Link href={nextPageURL}>
+            <a className="moreLink" href={nextPageURL}>
+              More
+            </a>
+          </Link>
+        </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
