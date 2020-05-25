@@ -3,7 +3,7 @@ import Link from "next/link";
 import NewsRow from "./NewsRow";
 import withStyle from "../../../common/hoc/withStyle";
 import styles from "../style/News.style";
-// import Header from "../../content/Header";
+import Header from "../../content/Header";
 
 const renderNewsData = (news, hideComment, upVotes) => {
   return (
@@ -32,15 +32,15 @@ const NewsView = ({ className, news, hideComment, upVotes }) => {
     pageNumber < totalPages ? `/news?p=${news.pageInfo.nextPage}` : "/news";
   return (
     <div className={className}>
-      <div className="newsMainContainer">
-        <div>{renderNewsData(news, hideComment, upVotes)}</div>
-        <div>
-          <Link href={nextPageURL}>
-            <a className="moreLink" href={nextPageURL}>
-              More
-            </a>
-          </Link>
-        </div>
+      <Header />
+
+      <div>{renderNewsData(news, hideComment, upVotes)}</div>
+      <div>
+        <Link href={nextPageURL}>
+          <a className="moreLink" href={nextPageURL}>
+            More
+          </a>
+        </Link>
       </div>
     </div>
   );
