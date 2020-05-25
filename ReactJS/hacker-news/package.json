@@ -19,7 +19,7 @@
     "yarn": "^1.22.4"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "node server",
     "build": "next build",
     "start": "next start",
     "test": "react-scripts test",
