@@ -6,6 +6,12 @@ export default css`
     display: flex;
     align-items: center;
     padding: 5px;
+    width: 100%;
+    margin: 0px auto;
+    box-sizing: border-box;
+    @media (min-width: 768px) {
+      width: 85%;
+    }
 
     a {
       text-decoration: none;
