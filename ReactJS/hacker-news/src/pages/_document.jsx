@@ -1,5 +1,5 @@
 import React from "react";
-import Document, { Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -8,18 +8,17 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html>
-        <head>
+      <Html>
+        <Head>
           <meta charset="utf-8" />
-          <link rel="icon" href="%PUBLIC_URL%/y18.gif" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>News Hacker App</title>
-        </head>
+          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
