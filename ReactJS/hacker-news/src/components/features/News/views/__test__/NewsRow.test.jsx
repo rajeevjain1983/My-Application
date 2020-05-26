@@ -15,7 +15,7 @@ describe("<NewsRow", () => {
         title: "test",
         points: 10,
         author: "test",
-        created_at: new Date(),
+        created_at: new Date("2020-05-26T06:02:13.382Z"),
         num_comments: 10,
         hide: false,
         upVotes: 0,
