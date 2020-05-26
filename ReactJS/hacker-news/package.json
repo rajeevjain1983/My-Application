@@ -19,9 +19,9 @@
     "yarn": "^1.22.4"
   },
   "scripts": {
-    "dev": "node server",
+    "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node server",
+    "start": "next start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

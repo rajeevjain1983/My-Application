@@ -6,7 +6,7 @@ export default css`
   align-items: center;
   padding: 5px;
 
-  a {
+  span {
     text-decoration: none;
     color: #000000;
   }

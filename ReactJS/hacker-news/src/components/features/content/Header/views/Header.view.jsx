@@ -1,18 +1,21 @@
 import React from "react";
+import Link from "next/link";
 import withStyle from "../../../../common/hoc/withStyle";
 import styles from "../style/header.style";
 
 const Header = (props) => {
   return (
     <div className={props.className}>
-      <a className="headerLink" onClick={() => localStorage.clear()} href="/">
-        <img className="headerImage" alt="" src="y18.gif" />
-      </a>
+      <Link href="/">
+        <a className="headerLink" href="/">
+          <img className="headerImage" alt="Logo" src="y18.gif" />
+        </a>
+      </Link>
 
-      <a className="headerLink" href="/">
+      <span className="headerLink" href="/">
         top
-      </a>
-      <a href="/">| new</a>
+      </span>
+      <span href="/">| new</span>
     </div>
   );
 };

@@ -6,8 +6,10 @@ export default css`
   padding-left: 30px;
   font-size: 12pt;
   color: #000000;
-  background-color: ${(props) =>
-    props.rowNumber % 2 === 0 ? "#DADAD3" : "transparent"};
+
+  /* background-color: green; */
+  /* background-color: ${(props) =>
+    props.rowNumber % 2 === 0 ? "#DADAD3" : "transparent"}; */
 
   .wrap {
     flex-wrap: wrap;
@@ -45,7 +47,7 @@ export default css`
   }
   .link:focus {
     border: none;
-    outline: none;
+    /* outline: none; */
   }
   .upVotes {
     min-width: 20px;

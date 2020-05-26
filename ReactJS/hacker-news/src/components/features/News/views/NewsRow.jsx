@@ -9,7 +9,7 @@ const NewsRow = ({
   upVotesButtonHandler,
 }) => {
   return (
-    <div className={className}>
+    <li className={className}>
       <div className="alignTop col">
         <span className="comments">{data.num_comments}</span>
         <div className="upVotes">
@@ -24,7 +24,7 @@ const NewsRow = ({
       </div>
       <div className="col wrap">
         <div className="col wrap">
-          <a className="marginRight title" href={data.url}>
+          <a className="marginRight title" target="_new" href={data.url}>
             <span>{data.title}</span>
           </a>
           <span className="marginRight colorGray">{data.linkDomain}</span>
@@ -40,7 +40,7 @@ const NewsRow = ({
           </button>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 
