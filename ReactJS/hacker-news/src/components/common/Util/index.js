@@ -1,4 +1,4 @@
-// Only this Mapper function need to change if Api or Data contract get change in any case
+// Need to change this format method if data contract get change
 
 export const formatNewsData = (newsData) => {
   const newsList = [];

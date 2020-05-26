@@ -5,7 +5,11 @@ import styles from "../style/header.style";
 const Header = (props) => {
   return (
     <div className={props.className}>
-      <a className="headerLink" onClick={() => localStorage.clear()} href="/">
+      <a
+        className="headerLink"
+        onClick={() => localStorage.clear()}
+        href="/news"
+      >
         <img className="headerImage" alt="" src="y18.gif" />
       </a>
 

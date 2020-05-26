@@ -1,6 +1,5 @@
 // server.js
 const express = require("express");
-// const { parse } = require("url");
 const next = require("next");
 const { ROUTES_LIST } = require("./route.config");
 
@@ -22,15 +21,12 @@ app.prepare().then(() => {
 
       // Handling routes with params
       const params = route.params.reduce((componentParam, paramKey) => {
-        // eslint-disable-next-line no-param-reassign
         componentParam[paramKey] = req.params[paramKey];
         return componentParam;
       }, {});
       app.render(req, res, route.resolver, params);
     });
   });
-
-  //   server.get("/", "/home");
 
   // handling of other routes
   server.get("*", (req, res) => {

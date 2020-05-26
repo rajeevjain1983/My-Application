@@ -6,7 +6,6 @@ export default css`
   padding-left: 30px;
   font-size: 12pt;
   color: #000000;
-  /* border: 1px solid black; */
   background-color: ${(props) =>
     props.rowNumber % 2 === 0 ? "#DADAD3" : "transparent"};
 
