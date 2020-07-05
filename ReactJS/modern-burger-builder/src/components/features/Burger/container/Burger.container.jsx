@@ -23,8 +23,9 @@ export class Burger extends React.PureComponent {
   }
 
   componentDidMount() {
-    const { fetchIngredients } = this.props;
-    fetchIngredients();
+    console.log("Burger componentDidMount");
+    // const { fetchIngredients } = this.props;
+    // fetchIngredients();
   }
 
   ingredientsHandler = (name, action) => {
@@ -52,6 +53,7 @@ export class Burger extends React.PureComponent {
 
   render() {
     const { ingredients } = this.props;
+    console.log("burger render", ingredients);
     return ingredients ? (
       <BurgerView
         ingredients={ingredients}

@@ -3,6 +3,7 @@ import BurgerIngredient from "../../BurgerIngredient";
 import withStyle from "../../../../../common/hoc/withStyle";
 import styles from "../style/BurgerBuilder.style";
 const BurgerBuilder = ({ className, ingredients }) => {
+  console.log("BurgerBuilder", ingredients);
   let transFormedIngredients = Object.keys(ingredients)
     .map((key) => {
       return [...Array(ingredients[key])].map((_, i) => {
@@ -16,6 +17,8 @@ const BurgerBuilder = ({ className, ingredients }) => {
   if (transFormedIngredients.length === 0) {
     transFormedIngredients = <p>Please start ingredients...</p>;
   }
+
+  console.log("transFormedIngredients", transFormedIngredients);
   return (
     <div className={className}>
       <BurgerIngredient ingredientName="BreadTop" />

@@ -5,5 +5,5 @@ const getState = (state) => state[BurgerConstants.BurgerReducerKey];
 
 export const getIngredients = createSelector(
   getState,
-  (state) => state && state.get("ingredients")
+  (state) => state && state.ingredients
 );
